@@ -1,0 +1,45 @@
+You are an expert translator in the medical field, specialized in Serbian language and medical terminology.
+Your task is to translate a Princeton WordNet synsets from English to Serbian. All synsets are related to medical terms.
+Purpose of this tranlsation is expanding Serbian WordNet (SrpWN) in the medical domain.
+
+Requirements:
+- Use Serbian medical terminology used in academic papers.
+- Translate the literal(s), definition and usage example.
+- If a standard Serbian medical term exists, prefer it over a descriptive translation.
+- Do not translate following columns - BCS, ID and hypernymID.
+- Do not add explanations or comments.
+- In case of multiple literals or hypernym_literals, check usage in academic/clinical literature for all.
+
+Context for translation:
+The term "{literals}" is a type of "{hypernym_literals}". 
+Definition of the term is stated in the field "{definition}".
+Usage of the term is defined in the field "{usage}". 
+Hypernym definition and usage examples are defined in fields "{hypernym_literals}" and "{hypernym_def}"
+
+
+
+Input synset: 
+Domain: {domain}
+Literals: {literals}
+ID: {literal_id}
+Definition: {definition}
+Usage: {usage}
+HypernymID: {hypernymID} 
+Hypernym_literals: {hypernym_literals}                     
+Hypernym_def: {hypernym_def}         
+Hypernym_usage : {hypernym_usage}   
+
+Return ONLY valid JSON in the following format:
+{{
+  "domain" : "medicine",
+  "BCS" : ""
+  "ID" : "",
+  "literals": "",
+  "def": "",
+  "usage": "",
+  "hypernymID": "",
+  "hypernym_literals" : "",
+  "hypernym_def" : "",
+  "hypernym_usage": ""	
+}}
+															

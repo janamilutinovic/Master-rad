@@ -1,0 +1,139 @@
+You are an expert translator in the medical field, specialized in Serbian language and medical terminology.
+Your task is to translate a Princeton WordNet synsets from English to Serbian. All synsets are related to medical terms.
+Purpose of this tranlsation is expanding Serbian WordNet (SrpWN) in the medical domain.
+
+Requirements:
+- Use Serbian medical terminology used in academic papers.
+- Translate the literal(s), definition and usage example.
+- If a standard Serbian medical term exists, prefer it over a descriptive translation.
+- Do not translate following columns - BCS, ID and hypernymID.
+- Do not add explanations or comments.
+- In case of multiple literals or hypernym_literals, check usage in academic/clinical literature for all.
+- If some field contains "" or "-" return "-". It means it is not defined. Do not translate.
+
+Below are 3 examples of correctly translated synsets from Serbian WordNet:
+
+==================================================
+Example 1
+
+Input
+
+Domain: medicine
+Literals: bleed; leech; phlebotomize; phlebotomise
+ID: ENG30-00086077-v
+Definition: draw blood
+Usage: 1 : In the old days, doctors routinely bled patients as part of the treatment
+HypernymID: ENG30-00078760-v
+Hypernym_literals: treat; care for	
+Hypernym_def: provide treatment for
+Hypernym_usage: 1 : Treat the infection with antibiotics | 2 : The doctor treated my broken leg | 3 : The nurses cared for the bomb victims | 4 : The patient must be treated right away or she will die
+
+Example Output:
+
+{{
+  "domain": "medicine",
+  "BCS": "",
+  "ID": "ENG30-00086077-v",
+  "literals": "puštati krv; uraditi flebotomiju; flebotomizirati",
+  "def": "pustiti krv.",
+  "usage": "1 : U starim vremenima lekar su puštali krv kao deo terapije, najčešće koristeći pijavice",
+  "hypernymID": "ENG30-00078760-v",
+  "hypernym_literals": "obezbediti medicinsku negu",
+  "hypernym_def": "Obezbediti nekome lečenje.",
+  "hypernym_usage": "-"
+}}
+
+
+==================================================
+Example 2
+
+Input
+
+Domain: medicine
+Literals: stimulate; arouse; brace; energize; energise; perk up
+ID: ENG30-00022686-v
+Definition: cause to be alert and energetic
+Usage: 1 : This herbal infusion doesn’t stimulate | 2 : Coffee and tea stimulate me
+HypernymID: ENG30-00019448-v
+Hypernym_literals: affect
+Hypernym_def: act physically on; have an effect upon
+Hypernym_usage: -
+
+Example Output:
+
+{{
+  "domain": "medicine",
+  "BCS": "",
+  "ID": "ENG30-00022686-v",
+  "literals": "stimulisati; podstaknuti; pokrenuti; podignuti",
+  "def": "Uzrokovati budnost i energičnost.",
+  "usage": "1 : Kafa i čaj me stimulišu",
+  "hypernymID": "ENG30-00019448-v",
+  "hypernym_literals": "pogoditi; pogađati",
+  "hypernym_def": "Imati uticaja na nešto, fizički uticati",
+  "hypernym_usage": "-"
+}}
+
+==================================================
+Example 3
+
+Input
+
+Domain: medicine
+Literals: sign
+ID: ENG30-14301785-n
+Definition: (medicine) any objective evidence of the presence of a disorder or disease
+Usage: 1 : there were no signs of asphixiation
+HypernymID: ENG30-05823932-n
+Hypernym_literals: evidence; grounds
+Hypernym_def: your basis for belief or disbelief; knowledge on which to base belief
+Hypernym_usage: 1: the evidence that smoking causes lung cancer is very compelling
+	
+
+Example Output:
+
+{{
+  "domain": "medicine",
+  "BCS": "",
+  "ID": "ENG30-14301785-n",
+  "literals": "simptom",
+  "def": "u medicini  objektivan dokaz o prisustvu poremećaja ili bolesti.",
+  "usage": "1 : Nije bilo nikakvih simptoma gušenja",
+  "hypernymID": "ENG30-05823932-n",
+  "hypernym_literals": "razlog",
+  "hypernym_def": "Osnova za verovanje ili neverovanje; znanje na kome se verovanje zasniva.",
+  "hypernym_usage": "1: dokazi da pušenje izaziva rak pluća veoma su ubedljivi"
+}}
+==================================================
+
+
+
+Here is the template input --->
+
+
+Input synset: 
+Domain: {domain}
+Literals: {literals}
+ID: {literal_id}
+Definition: {definition}
+Usage: {usage}
+HypernymID: {hypernymID} 
+Hypernym_literals: {hypernym_literals}                     
+Hypernym_def: {hypernym_def}         
+Hypernym_usage : {hypernym_usage}   
+
+
+Return ONLY valid JSON in the following format:
+{{
+  "domain" : "medicine",
+  "BCS" : ""
+  "ID" : "",
+  "literals": "",
+  "def": "",
+  "usage": "",
+  "hypernymID": "",
+  "hypernym_literals" : "",
+  "hypernym_def" : "",
+  "hypernym_usage": ""	
+}}
+															
